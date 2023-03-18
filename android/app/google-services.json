@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "153236318407",
+    "project_id": "vin-hero",
+    "storage_bucket": "vin-hero.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153236318407:android:2f6b3f5830df14b1daf6e2",
+        "android_client_info": {
+          "package_name": "com.example.vinhero"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153236318407-es1o4b9vplrs89g34dekfretdm7kr8ko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpusBSoC9OABpdyoUsFNhOKkc1CbBQGBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153236318407-es1o4b9vplrs89g34dekfretdm7kr8ko.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
