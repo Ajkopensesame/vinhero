@@ -38,21 +38,19 @@ class VinHeroApp extends StatelessWidget {
       title: 'Vin Hero',
       theme: ThemeData(
         primaryColor: Color(0xFF08a24a),
-        accentColor: Color(0xFF0ce769),
-        colorScheme: ColorScheme.light(
-          primary: Color(0xFF08a24a),
-          secondary: Color(0xFF0ce769),
-        ),
-        textSelectionTheme: TextSelectionThemeData(
+        textSelectionTheme: const TextSelectionThemeData(
           cursorColor: Color(0xFF08a24a),
           selectionHandleColor: Color(0xFF08a24a),
         ),
-        inputDecorationTheme: InputDecorationTheme(
+        inputDecorationTheme: const InputDecorationTheme(
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Color(0xFF08a24a), width: 1.0),
           ),
         ),
-        fontFamily: 'Montserrat',
+        fontFamily: 'Montserrat', colorScheme: const ColorScheme.light(
+          primary: Color(0xFF08a24a),
+          secondary: Color(0xFF0ce769),
+        ).copyWith(secondary: Color(0xFF0ce769)),
       ),
       initialRoute: '/',
       routes: {
