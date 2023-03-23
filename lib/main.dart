@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:vinhero/obd2_page.dart';
 import 'package:vinhero/profile_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -11,15 +12,25 @@ import 'package:vinhero/barcode_scanner_page.dart';
 import 'package:vinhero/vin_results_page.dart';
 import 'authentication_wrapper.dart';
 import 'home_page.dart';
+import 'package:vinhero/parts_page.dart';
+import 'package:vinhero/logbook_page.dart';
+import 'package:vinhero/fixed_page.dart';
+import 'package:vinhero/quotes_page.dart';
+import 'package:vinhero/chat_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(VinHeroApp());
+  runApp(VinHeroApp(vin: '',));
 }
 
 class VinHeroApp extends StatelessWidget {
+  final String vin;
+
+  VinHeroApp({required this.vin});
+
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +60,13 @@ class VinHeroApp extends StatelessWidget {
         '/sign_in': (context) => BasePage(child: SignInPage()),
         '/sign_up': (context) => BasePage(child: SignUpPage()),
         '/home': (context) => BasePage(child: HomePage()),
+        '/parts_page': (context) => BasePage(child: PartsPage(vin: vin)),
+        '/logbook_page': (context) => BasePage(child: (LogbookPage(vin: vin))),
+        '/fixed_page': (context) => BasePage(child: FixedPage()),
+        '/quotes_page': (context) => BasePage(child: QuotesPage()),
+        '/chat_page': (context) => BasePage(child: ChatPage()),
+
+        '/obd2_page': (context) => BasePage(child: OBD2Page()),
         '/vin_decoder': (context) => BasePage(child: VinDecoderPage()),
         '/profile_page': (context) => BasePage(child: ProfilePage()),
         '/barcode_scanner': (context) => BasePage(child: BarcodeScannerPage(
@@ -57,7 +75,7 @@ class VinHeroApp extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => VinResultsPage(vehicleData: vehicleData),
+                builder: (context) => VinResultsPage(vehicleData: vehicleData, vin: '',),
               ),
             );
           },

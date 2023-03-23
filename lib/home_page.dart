@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
             context,
             icon: FontAwesomeIcons.commentDollar,
             label: 'Quotes',
-            onPressed: () {
+            onPressed: () {Navigator.pushNamed(context, '/quotes_page');
               // Add navigation to Quotes
             },
           ),
@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
             context,
             icon: FontAwesomeIcons.wrench,
             label: 'Fixed',
-            onPressed: () {
+            onPressed: () {Navigator.pushNamed(context, '/fixed_page');
               // Add navigation to Fixed
             },
           ),
@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
             context,
             icon: FontAwesomeIcons.comments,
             label: 'Chat',
-            onPressed: () {
+            onPressed: () {Navigator.pushNamed(context, '/chat_page');
               // Add navigation to Chat
             },
           ),
@@ -65,7 +65,7 @@ class HomePage extends StatelessWidget {
             context,
             icon: FontAwesomeIcons.book,
             label: 'Logbook',
-            onPressed: () {
+            onPressed: () {Navigator.pushNamed(context, '/logbook_page');
               // Add navigation to Logbook
             },
           ),
@@ -73,7 +73,7 @@ class HomePage extends StatelessWidget {
             context,
             icon: FontAwesomeIcons.cogs,
             label: 'Parts',
-            onPressed: () {
+            onPressed: () {Navigator.pushNamed(context, '/parts_page');
               // Add navigation to Parts
             },
           ),
@@ -81,7 +81,7 @@ class HomePage extends StatelessWidget {
             context,
             icon: FontAwesomeIcons.carAlt,
             label: 'OBD2',
-            onPressed: () {
+            onPressed: () {Navigator.pushNamed(context, '/obd2_page');
               // Add navigation to OBD2
             },
           ),

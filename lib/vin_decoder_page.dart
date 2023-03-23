@@ -80,7 +80,7 @@ class _VinDecoderPageState extends State<VinDecoderPage> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => VinResultsPage(vehicleData: vehicleData),
+          builder: (context) => VinResultsPage(vehicleData: vehicleData, vin: vin),
         ),
       );
     } else {
