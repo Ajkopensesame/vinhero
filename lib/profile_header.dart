@@ -2,6 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ProfileHeader extends StatelessWidget {
+  final String? fullName;
+  final String? email;
+  final Function(String?, String?)? onUpdateProfile;
+
+  const ProfileHeader({
+    Key? key,
+    this.fullName,
+    this.email,
+    this.onUpdateProfile,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -31,9 +42,46 @@ class ProfileHeader extends StatelessWidget {
               ),
               IconButton(
                 onPressed: () {
-                  // Implement edit profile functionality
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return Container(
+                        padding: EdgeInsets.all(16.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            TextField(
+                              decoration: InputDecoration(
+                                labelText: 'Full Name',
+                                hintText: fullName,
+                              ),
+                              onChanged: (value) {
+                                onUpdateProfile!(value, email);
+                              },
+                            ),
+                            TextField(
+                              decoration: InputDecoration(
+                                labelText: 'Email Address',
+                                hintText: email,
+                              ),
+                              onChanged: (value) {
+                                onUpdateProfile!(fullName, value);
+                              },
+                            ),
+                            SizedBox(height: 10),
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text('Save'),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
                 },
-                icon: Icon(Icons.edit),
+                icon: const Icon(Icons.edit),
               ),
             ],
           ),
@@ -43,37 +91,43 @@ class ProfileHeader extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Full Name', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
-              Text('Email Address', style: TextStyle(fontSize: 16.0)),
-              SizedBox(height: 8.0),
+              Text(
+                fullName ?? '',
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                email ?? '',
+                style: TextStyle(fontSize: 16.0),
+              ),
+              const SizedBox(height: 8.0),
               TextButton(
                 onPressed: () {
                   showDialog(
                     context: context,
                     builder: (context) {
                       return AlertDialog(
-                        title: Text('Logout'),
-                        content: Text('Are you sure you want to log out?'),
+                        title: const Text('Logout'),
+                        content: const Text('Are you sure you want to log out?'),
                         actions: [
                           TextButton(
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            child: Text('Cancel'),
+                            child: const Text('Cancel'),
                           ),
                           TextButton(
                             onPressed: () {
                               // Implement logout functionality
                               Navigator.pop(context);
                             },
-                            child: Text('Logout'),
+                            child: const Text('Logout'),
                           ),
                         ],
                       );
                     },
                   );
                 },
-                child: Text('Logout'),
+                child: const Text('Logout'),
               ),
             ],
           ),

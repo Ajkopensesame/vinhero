@@ -54,7 +54,7 @@ class VinHeroApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => BasePage(child: AuthenticationWrapper()),
+        '/': (context) => BasePage(child: HomePage()),
         '/sign_in': (context) => BasePage(child: SignInPage()),
         '/sign_up': (context) => BasePage(child: SignUpPage()),
         '/home': (context) => BasePage(child: HomePage()),
