@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
       body: Stack(
           children: [
       Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
       image: DecorationImage(
           image: AssetImage('assets/vin_hero.png'),
       fit: BoxFit.cover,
@@ -20,14 +20,14 @@ class HomePage extends StatelessWidget {
     ),
     GridView.count(
     crossAxisCount: 2,
-    padding: EdgeInsets.all(20.0),
+    padding: const EdgeInsets.all(20.0),
     crossAxisSpacing: 20.0,
     mainAxisSpacing: 20.0,
         children: [
           _buildFeatureButton(
             context,
             icon: FontAwesomeIcons.user,
-            label: 'My Profile',
+            label: 'My Garage',
             onPressed: () {Navigator.pushNamed(context, '/profile_page');},
           ),
           _buildFeatureButton(

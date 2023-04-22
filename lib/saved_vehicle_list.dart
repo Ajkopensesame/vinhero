@@ -4,6 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SavedVehicleList extends StatefulWidget {
+  final List<Map<String, dynamic>> savedVehicles;
+
+  const SavedVehicleList({Key? key, required this.savedVehicles}) : super(key: key);
+
   @override
   _SavedVehicleListState createState() => _SavedVehicleListState();
 }
